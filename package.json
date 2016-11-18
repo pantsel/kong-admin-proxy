@@ -1,8 +1,8 @@
 {
-  "name": "kong-admin-utils",
+  "name": "kong-admin-proxy",
   "private": true,
-  "version": "0.0.0",
-  "description": "a Sails application",
+  "version": "0.1.0",
+  "description": "A proxy that extends Kong Admin API",
   "keywords": [],
   "dependencies": {
     "http-proxy": "^1.15.2",
