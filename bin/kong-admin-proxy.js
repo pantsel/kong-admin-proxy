@@ -14,7 +14,7 @@ if (argv._[0] === 'build') {
 }
 
 if (argv._[0] === 'start') {
-    var port = argv._[1] ? argv._[1] : 1339;
+    var port = argv._[1] || argv.p || 1339
     proxy.serve(port);
 }
 
