@@ -1,6 +1,5 @@
 {
   "name": "kong-admin-proxy",
-  "private": true,
   "version": "0.1.0",
   "description": "A web proxy that extends Kong's Admin API",
   "keywords": [
