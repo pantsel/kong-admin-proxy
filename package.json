@@ -19,7 +19,7 @@
     "unirest": "^0.5.1"
   },
   "bin": {
-    "kaproxy": "./bin/kong-admin-proxy.js"
+    "kong-admin-proxy": "./bin/kong-admin-proxy.js"
   },
   "scripts": {
     "debug": "node debug app.js",
