@@ -2,8 +2,10 @@
   "name": "kong-admin-proxy",
   "private": true,
   "version": "0.1.0",
-  "description": "A web proxy that extends Kong Admin API",
-  "keywords": [],
+  "description": "A web proxy that extends Kong's Admin API",
+  "keywords": [
+    "kong","kong admin api","sails.js","proxy","node.js"
+  ],
   "dependencies": {
     "http-proxy": "^1.15.2",
     "ip": "^1.1.4",
@@ -19,8 +21,8 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/anonymous node/sails user/kong-admin-utils.git"
+    "url": "git@github.com:pantsel/kong-admin-proxy.git"
   },
-  "author": "anonymous node/sails user",
-  "license": ""
+  "author": "Panagis Tselentis",
+  "license": "MIT"
 }
