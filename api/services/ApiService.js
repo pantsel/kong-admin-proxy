@@ -15,7 +15,7 @@ var ApiService = {
             delete api.plugins
         }
 
-        KongaApiService.apis.updateOrAddApi(api,function(err,_api) {
+        ApiService.updateOrAddApi(api,function(err,_api) {
 
             if (err)  return cb(err)
 
@@ -29,7 +29,7 @@ var ApiService = {
 
             result = _api
 
-            KongaApiService.apis
+            ApiService
                 .updateOrAddPlugins(result.name,plugins,function(err,_plugins){
                     if (err)  {
                         if(err.statusCode !== 409)
@@ -50,7 +50,7 @@ var ApiService = {
                 if (response.error)  {
                     if(response.statusCode === 404) {
                         // API not found we need to create it
-                        KongaApiService.apis.createApi(api,function(err,api){
+                        ApiService.createApi(api,function(err,api){
                             if(err) return cb(err)
                             return cb(null,api)
                         })
@@ -61,7 +61,7 @@ var ApiService = {
                     // Api found, we need to update it
                     var api_id = api.id
                     delete api.id
-                    KongaApiService.apis.updateApi(api_id,api,function(err,api){
+                    ApiService.updateApi(api_id,api,function(err,api){
                         if(err) return cb(err)
                         return cb(null,api)
                     })

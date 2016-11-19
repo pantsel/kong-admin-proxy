@@ -42,24 +42,11 @@ module.exports = {
      */
     createConsumer : function(req,res) {
         ConsumerService.create(req.body,function(err,response){
-            if(err) return res.kongError(err)
+            if(err) return res.negotiate(err)
             return res.json(response)
         })
     },
 
-
-    /**
-     * Updates a Consumer
-     * @param req
-     * @param res
-     */
-    updateConsumer : function(req,res) {
-        ConsumerService.update(req.params.id,req.body,function(err,response){
-            if(err) return res.kongError(err)
-            ConsumerService.sync(function(err,ok){}) // Fire and forget
-            return res.json(response)
-        })
-    },
 
     /**
      * Registers or updates an already registered api and it's associated plugins
@@ -68,7 +55,7 @@ module.exports = {
      */
     registerApi : function(req,res) {
         ApiService.register(req.body,function(err,response){
-            if(err) return res.kongError(err)
+            if(err) return res.negotiate(err)
             return res.json(response)
         })
     }
