@@ -18,21 +18,27 @@ A web proxy microservice that proxies requests to the native Kong's Admin API, w
 
 ## Installation
 
-Install <code>npm</code> and <code>node.js</code>. Instructions can be found [here](http://sailsjs.org/#/getStarted?q=what-os-do-i-need).
+Install <code>npm</code> and <code>node.js</code> and <code>sails</code>. Instructions can be found [here](http://sailsjs.org/#/getStarted?q=what-os-do-i-need).
 
-Install <code>sails</code> package.
+### With npm
 <pre>
-$ npm install sails -g
+# Install
+npm install -g kong-admin-proxy
+
+# Start service
+kong-admin-proxy start
+
+# To start kong-admin-proxy on a custom port
+kong-admin-proxy start -p [port]
+</pre>
+
+### From source
+<pre>
 $ git clone https://github.com/pantsel/kong-admin-proxy.git
 $ cd kong-admin-proxy
 $ npm install
-</pre>
-
-Finally:
-<pre>
 $ npm start
 </pre>
-
 
 ## Configuration
 There is an example configuration file on following path.
