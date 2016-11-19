@@ -1,4 +1,4 @@
-# kong-admin-proxy
+# kong-admin-proxy [![Build Status](https://travis-ci.org/pantsel/kong-admin-proxy.svg?branch=master)]
 
 A web proxy microservice that proxies requests to the native Kong's Admin API, while extending it by providing helpful methods for integration.
 
