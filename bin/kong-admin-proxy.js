@@ -2,6 +2,7 @@
 var proxy = require('../lib/kong-admin-proxy');
 var parseArgs = require('minimist');
 var argv = parseArgs(process.argv.slice(2));
+var cfg = require('../config/local') || require('../config/local_example')
 
 if (argv.help || (argv._[0] !== 'start' && argv._[0] !== 'build')) {
     console.log("Usage:");
@@ -14,8 +15,9 @@ if (argv._[0] === 'build') {
 }
 
 if (argv._[0] === 'start') {
-    var port = argv._[1] || argv.p || 1339
-    proxy.serve(port);
+    var port = argv._[1] || argv.p || cfg.port
+    process.env.PORT = port // set port
+    proxy.serve();
 }
 
 
