@@ -1,21 +1,29 @@
 {
   "name": "kong-admin-proxy",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A web proxy that extends Kong's Admin API",
   "keywords": [
-    "kong","kong admin api","sails.js","proxy","node.js"
+    "kong",
+    "kong admin api",
+    "sails.js",
+    "proxy",
+    "node.js"
   ],
   "dependencies": {
     "http-proxy": "^1.15.2",
     "ip": "^1.1.4",
+    "minimist": "^1.2.0",
     "rc": "1.0.1",
     "sails": "~0.12.3",
     "sails-disk": "~0.10.9",
     "unirest": "^0.5.1"
   },
+  "bin": {
+    "kaproxy": "./bin/kong-admin-proxy.js"
+  },
   "scripts": {
     "debug": "node debug app.js",
-    "start": "node app.js"
+    "start": "node ./bin/kong-admin-proxy start"
   },
   "main": "app.js",
   "repository": {
