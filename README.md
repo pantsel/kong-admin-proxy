@@ -18,8 +18,6 @@ A web proxy microservice that proxies requests to the native Kong's Admin API, w
 
 ## Installation
 
-Install <code>npm</code> and <code>node.js</code> and <code>sails</code>. Instructions can be found [here](http://sailsjs.org/#/getStarted?q=what-os-do-i-need).
-
 ### With npm
 <pre>
 # Install
