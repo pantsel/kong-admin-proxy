@@ -42,7 +42,7 @@ module.exports = {
      */
     createConsumer : function(req,res) {
         ConsumerService.create(req.body,function(err,response){
-            if(err) return res.negotiate(err)
+            if(err) return res.send(err.statusCode,err.body)
             return res.json(response)
         })
     },
@@ -55,7 +55,7 @@ module.exports = {
      */
     registerApi : function(req,res) {
         ApiService.register(req.body,function(err,response){
-            if(err) return res.negotiate(err)
+            if(err) return res.send(err.statusCode,err.body)
             return res.json(response)
         })
     }
