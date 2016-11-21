@@ -33,7 +33,7 @@ var ApiService = {
                 .updateOrAddPlugins(result.name,plugins,function(err,_plugins){
                     if (err)  {
                         if(err.statusCode !== 409)
-                            KongaApiService.apis.deleteApi(result.id,function(err,deleted){})
+                            ApiService.deleteApi(result.id,function(err,deleted){})
                         return cb(err)
                     }
                     result.plugins = _plugins
