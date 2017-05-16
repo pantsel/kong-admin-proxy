@@ -10,6 +10,7 @@ var ConsumerService = {
 
         var consumer = {}
         unirest.post(sails.config.kong_admin_url + '/consumers')
+            .header('Content-Type', 'application/json')
             .send({
                 username  : inc.username,
                 custom_id : inc.custom_id
@@ -58,6 +59,7 @@ var ConsumerService = {
 
     update : function(consumer_id,consumer,cb) {
         unirest.patch(sails.config.kong_admin_url + '/consumers/' + consumer_id)
+            .header('Content-Type', 'application/json')
             .send(consumer)
             .end(function (response) {
                 if (response.error) return cb(response)
@@ -67,6 +69,7 @@ var ConsumerService = {
 
     delete : function(consumer_id,cb) {
         unirest.delete(sails.config.kong_admin_url + '/consumers/' + consumer_id)
+            .header('Content-Type', 'application/json')
             .end(function (response) {
                 if (response.error) return cb(response)
                 return cb(null,response.body)
@@ -81,6 +84,7 @@ var ConsumerService = {
         acls.forEach(function(acl) {
             promises.push(function (callback) {
                 unirest.post(sails.config.kong_admin_url + '/consumers/' + consumer_id + "/acls")
+                    .header('Content-Type', 'application/json')
                     .send({
                         group : acl
                     })
@@ -114,6 +118,7 @@ var ConsumerService = {
         authorizations.forEach(function(auth) {
             promises.push(function (callback) {
                 unirest.post(sails.config.kong_admin_url + '/consumers/' + consumer_id + "/" + auth.name)
+                    .header('Content-Type', 'application/json')
                     .send(auth.config || {})
                     .end(function (response) {
 
@@ -142,16 +147,17 @@ var ConsumerService = {
 
     listCredentials : function(consumer_id,cb) {
 
-        var credentials = ['jwt','key-auth','basic-auth','hmac-auth','oauth2']
+        var credentials = ['jwt','key-auth']
         var promises = []
 
         credentials.forEach(function(credential){
             promises.push(function(cb) {
                 unirest.get(sails.config.kong_admin_url + '/consumers/' + consumer_id + "/" + credential)
+                    .header('Content-Type', 'application/json')
                     .end(function(response){
                         if(response.error) return  cb({
                             status : response.error.status,
-                            message : response.body.message
+                            message : response.body
                         })
                         return cb(null,{
                             name : credential,

@@ -28,7 +28,6 @@ module.exports = {
      * @param res
      */
     listConsumerCredentials : function(req,res) {
-
         ConsumerService.listCredentials(req.params.id,function(err,result){
             if(err) return res.negotiate(err)
             return res.json(result)
